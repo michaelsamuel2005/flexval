@@ -1,0 +1,1003 @@
+{
+ "valuation_date": "2026-10-14",
+ "data": {
+  "henry_hub": {
+   "source": "U.S. EIA via datasets/natural-gas",
+   "licence": "ODC-PDDL-1.0",
+   "description": "Monthly and daily Henry Hub spot prices of natural gas in USD per MMBtu, sourced from the U.S. Energy Information Administration (EIA). Covers January 1997 to the present.",
+   "unit": "US$/MMBtu, nominal",
+   "rows_used": 4720,
+   "from": "2008-01-02",
+   "to": "2026-10-14"
+  },
+  "gb_power": {
+   "source": "SIMULATED (no Ember file in data/raw)",
+   "licence": null,
+   "real": 0,
+   "unit": "\u00a3/MWh, daily average of day-ahead",
+   "note": "seasonal mean-reverting log-price with jumps; level and volatility chosen to resemble GB 2023-2026 day-ahead statistics; not market data"
+  },
+  "nbp_proxy": {
+   "source": "NBP PROXY: Henry Hub daily series rescaled to a stated mean level",
+   "real": 0,
+   "level_gbp_mwh": 30.0,
+   "note": "dynamics (seasonality, mean reversion, volatility, jumps) are Henry Hub's; the level is an assumption; replace with NBP/TTF settlements when available"
+  },
+  "rho_power_gas_used": 0.6,
+  "rho_power_gas_estimated_from_data": 0.0038182439022201764
+ },
+ "models": {
+  "henry_hub": {
+   "name": "Henry Hub",
+   "unit": "US$/MMBtu",
+   "a": 58.151693222262594,
+   "b": -0.028224920171689972,
+   "c": [
+    0.015813570199483432,
+    0.04229837518064315
+   ],
+   "d": [
+    -0.02947967469463557,
+    0.0015898667249955958
+   ],
+   "kappa": 4.752817844578246,
+   "sigma": 0.5369297936822991,
+   "lam": 14.631913541004451,
+   "mu_j": 0.005024336829321228,
+   "sigma_j": 0.2641882566810018,
+   "t0": "2026-10-14",
+   "x0": 0.2307208860847786,
+   "s0": 3.22,
+   "n_obs": 4720,
+   "r2_season": 0.15115214978597136,
+   "phi": 0.981316355951655
+  },
+  "gb_power": {
+   "name": "GB power",
+   "unit": "\u00a3/MWh",
+   "a": 1.497180827567608,
+   "b": 0.0014111081490544668,
+   "c": [
+    0.17243630983426977,
+    0.0706538918131551
+   ],
+   "d": [
+    0.07732861124577019,
+    0.0076014889746886865
+   ],
+   "kappa": 25.445313709193584,
+   "sigma": 1.6512156332435541,
+   "lam": 1.2155369383092156,
+   "mu_j": 0.11454898450902312,
+   "sigma_j": 0.31156714322356344,
+   "t0": "2026-10-14",
+   "x0": -0.07105762446440878,
+   "s0": 65.25269358180076,
+   "n_obs": 3940,
+   "r2_season": 0.2665030702902802,
+   "phi": 0.9039570171688402
+  },
+  "nbp_proxy": {
+   "name": "NBP proxy",
+   "unit": "\u00a3/MWh",
+   "a": 60.24989667873053,
+   "b": -0.028224920171689986,
+   "c": [
+    0.01581357019948332,
+    0.04229837518064327
+   ],
+   "d": [
+    -0.02947967469463565,
+    0.001589866724995566
+   ],
+   "kappa": 4.752817844578218,
+   "sigma": 0.5369297936822988,
+   "lam": 14.631913541004451,
+   "mu_j": 0.00502433682932139,
+   "sigma_j": 0.26418825668100215,
+   "t0": "2026-10-14",
+   "x0": 0.2307208860847738,
+   "s0": 26.247869294876928,
+   "n_obs": 4720,
+   "r2_season": 0.15115214978597136,
+   "phi": 0.9813163559516551
+  }
+ },
+ "forward_curve_first_12": [
+  {
+   "month": "2026-11",
+   "henry_hub_fwd_usd": 3.212,
+   "henry_hub_fwd_nojump_usd": 3.1367,
+   "henry_hub_implied_vol": 0.4798,
+   "gb_power_fwd_gbp": 76.8771,
+   "gb_power_implied_vol": 0.9993,
+   "nbp_proxy_fwd_gbp": 26.1826
+  },
+  {
+   "month": "2026-12",
+   "henry_hub_fwd_usd": 3.2222,
+   "henry_hub_fwd_nojump_usd": 3.077,
+   "henry_hub_implied_vol": 0.4057,
+   "gb_power_fwd_gbp": 92.182,
+   "gb_power_implied_vol": 0.6381,
+   "nbp_proxy_fwd_gbp": 26.2656
+  },
+  {
+   "month": "2027-01",
+   "henry_hub_fwd_usd": 3.162,
+   "henry_hub_fwd_nojump_usd": 2.9855,
+   "henry_hub_implied_vol": 0.3497,
+   "gb_power_fwd_gbp": 102.8804,
+   "gb_power_implied_vol": 0.4977,
+   "nbp_proxy_fwd_gbp": 25.7755
+  },
+  {
+   "month": "2027-02",
+   "henry_hub_fwd_usd": 2.9768,
+   "henry_hub_fwd_nojump_usd": 2.7948,
+   "henry_hub_implied_vol": 0.3081,
+   "gb_power_fwd_gbp": 101.5413,
+   "gb_power_implied_vol": 0.4218,
+   "nbp_proxy_fwd_gbp": 24.2655
+  },
+  {
+   "month": "2027-03",
+   "henry_hub_fwd_usd": 2.7747,
+   "henry_hub_fwd_nojump_usd": 2.598,
+   "henry_hub_implied_vol": 0.2794,
+   "gb_power_fwd_gbp": 92.2626,
+   "gb_power_implied_vol": 0.3766,
+   "nbp_proxy_fwd_gbp": 22.6183
+  },
+  {
+   "month": "2027-04",
+   "henry_hub_fwd_usd": 2.6372,
+   "henry_hub_fwd_nojump_usd": 2.4651,
+   "henry_hub_implied_vol": 0.2544,
+   "gb_power_fwd_gbp": 81.7247,
+   "gb_power_implied_vol": 0.3403,
+   "nbp_proxy_fwd_gbp": 21.4972
+  },
+  {
+   "month": "2027-05",
+   "henry_hub_fwd_usd": 2.6458,
+   "henry_hub_fwd_nojump_usd": 2.4708,
+   "henry_hub_implied_vol": 0.2353,
+   "gb_power_fwd_gbp": 76.1851,
+   "gb_power_implied_vol": 0.3136,
+   "nbp_proxy_fwd_gbp": 21.567
+  },
+  {
+   "month": "2027-06",
+   "henry_hub_fwd_usd": 2.7534,
+   "henry_hub_fwd_nojump_usd": 2.5699,
+   "henry_hub_implied_vol": 0.2192,
+   "gb_power_fwd_gbp": 74.476,
+   "gb_power_implied_vol": 0.2917,
+   "nbp_proxy_fwd_gbp": 22.4448
+  },
+  {
+   "month": "2027-07",
+   "henry_hub_fwd_usd": 2.839,
+   "henry_hub_fwd_nojump_usd": 2.6489,
+   "henry_hub_implied_vol": 0.2063,
+   "gb_power_fwd_gbp": 73.1218,
+   "gb_power_implied_vol": 0.2743,
+   "nbp_proxy_fwd_gbp": 23.1425
+  },
+  {
+   "month": "2027-08",
+   "henry_hub_fwd_usd": 2.8229,
+   "henry_hub_fwd_nojump_usd": 2.6332,
+   "henry_hub_implied_vol": 0.1951,
+   "gb_power_fwd_gbp": 69.9776,
+   "gb_power_implied_vol": 0.2593,
+   "nbp_proxy_fwd_gbp": 23.0109
+  },
+  {
+   "month": "2027-09",
+   "henry_hub_fwd_usd": 2.7396,
+   "henry_hub_fwd_nojump_usd": 2.5552,
+   "henry_hub_implied_vol": 0.1855,
+   "gb_power_fwd_gbp": 67.3959,
+   "gb_power_implied_vol": 0.2465,
+   "nbp_proxy_fwd_gbp": 22.3323
+  },
+  {
+   "month": "2027-10",
+   "henry_hub_fwd_usd": 2.6993,
+   "henry_hub_fwd_nojump_usd": 2.5173,
+   "henry_hub_implied_vol": 0.1774,
+   "gb_power_fwd_gbp": 69.4957,
+   "gb_power_implied_vol": 0.2358,
+   "nbp_proxy_fwd_gbp": 22.0031
+  }
+ ],
+ "options": {
+  "forward_feb27": 2.7947834069585538,
+  "strike": 2.79,
+  "T_years": 0.30116358658453113,
+  "implied_vol": 0.30814553554883756,
+  "european_call_black76": {
+   "value": 0.18827906605378342,
+   "se": 0.0,
+   "method": "Black-76",
+   "greeks": {
+    "delta": 0.5312777265552101,
+    "gamma": 0.8302834393739381,
+    "vega": 0.6018399718125194,
+    "theta_per_year": -0.3003651247744093
+   }
+  },
+  "european_put_black76": {
+   "value": 0.1835529369224671,
+   "se": 0.0,
+   "method": "Black-76",
+   "greeks": {
+    "delta": -0.45674799909734515,
+    "gamma": 0.8302834393739381,
+    "vega": 0.6018399718125194,
+    "theta_per_year": -0.30055416993966194
+   }
+  },
+  "european_call_mc_nojumps": {
+   "value": 0.18754334306375345,
+   "se": 0.001512286539083994,
+   "method": "Monte Carlo",
+   "greeks": {}
+  },
+  "european_call_mc_with_jumps": {
+   "value": 0.49441701187202836,
+   "se": 0.004346798297842956,
+   "method": "Monte Carlo",
+   "greeks": {}
+  },
+  "jump_premium": 0.30613794581824494,
+  "asian_call_mc_plain": {
+   "value": 0.1355094682488433,
+   "se": 0.001766989471223307,
+   "method": "Monte Carlo",
+   "greeks": {}
+  },
+  "asian_call_mc_control_variate": {
+   "value": 0.044120726524756654,
+   "se": 2.6909106279814992e-05,
+   "method": "Monte Carlo (geometric control variate)",
+   "greeks": {}
+  }
+ },
+ "storage": {
+  "deal": {
+   "name": "Henry Hub storage, Nov 2026 - Oct 2027",
+   "start": "2026-11-01",
+   "months": 12,
+   "capacity": 1000000,
+   "inj_rate": 200000,
+   "wd_rate": 300000,
+   "inj_cost": 0.02,
+   "wd_cost": 0.02,
+   "fuel_loss": 0.01,
+   "start_inventory": 0.0,
+   "end_inventory": 0.0,
+   "r": 0.04,
+   "grid": 10
+  },
+  "intrinsic_lp": 34666.989086891204,
+  "intrinsic_schedule": [
+   {
+    "month": "2026-11",
+    "forward": 3.137,
+    "inject": 0.0,
+    "withdraw": -0.0,
+    "inventory": 0.0
+   },
+   {
+    "month": "2026-12",
+    "forward": 3.077,
+    "inject": 0.0,
+    "withdraw": -0.0,
+    "inventory": 0.0
+   },
+   {
+    "month": "2027-01",
+    "forward": 2.986,
+    "inject": 0.0,
+    "withdraw": -0.0,
+    "inventory": 0.0
+   },
+   {
+    "month": "2027-02",
+    "forward": 2.795,
+    "inject": -0.0,
+    "withdraw": 0.0,
+    "inventory": 0.0
+   },
+   {
+    "month": "2027-03",
+    "forward": 2.598,
+    "inject": 0.0,
+    "withdraw": -0.0,
+    "inventory": 0.0
+   },
+   {
+    "month": "2027-04",
+    "forward": 2.465,
+    "inject": 200000.0,
+    "withdraw": 0.0,
+    "inventory": 200000.0
+   },
+   {
+    "month": "2027-05",
+    "forward": 2.471,
+    "inject": 200000.0,
+    "withdraw": 0.0,
+    "inventory": 400000.0
+   },
+   {
+    "month": "2027-06",
+    "forward": 2.57,
+    "inject": 0.0,
+    "withdraw": 0.0,
+    "inventory": 400000.0
+   },
+   {
+    "month": "2027-07",
+    "forward": 2.649,
+    "inject": 0.0,
+    "withdraw": 300000.0,
+    "inventory": 100000.0
+   },
+   {
+    "month": "2027-08",
+    "forward": 2.633,
+    "inject": 0.0,
+    "withdraw": 100000.0,
+    "inventory": 0.0
+   },
+   {
+    "month": "2027-09",
+    "forward": 2.555,
+    "inject": 0.0,
+    "withdraw": 0.0,
+    "inventory": 0.0
+   },
+   {
+    "month": "2027-10",
+    "forward": 2.517,
+    "inject": -0.0,
+    "withdraw": 0.0,
+    "inventory": 0.0
+   }
+  ],
+  "lsmc": {
+   "value": 164936.78717319222,
+   "se": 2967.9468002045737,
+   "paths": 6000
+  },
+  "lattice": {
+   "value": 169507.53758180924,
+   "grid_x": 41
+  },
+  "lsmc_with_jumps": {
+   "value": 535555.9693923589,
+   "se": 8679.151973660202
+  },
+  "rolling_intrinsic_policy": {
+   "value": 165122.06818425906,
+   "se": 8124.189496948857,
+   "paths": 800
+  },
+  "extrinsic_lsmc": 130269.79808630102,
+  "lsmc_sigma_x1_5": 305165.0840677618,
+  "deterministic_check": {
+   "lp": 33794.68157704064,
+   "lsmc": 33794.681475395686,
+   "lattice": 33794.68147539563
+  },
+  "hedged_distribution": {
+   "label": "rolling intrinsic: intrinsic locked with forwards, re-hedged monthly",
+   "mean": 165122.06818425906,
+   "sd": 229786.77939748252,
+   "p5": -160308.94890723092,
+   "p95": 606642.3632089203,
+   "var95_vs_mean": 325431.01709148986,
+   "es95_vs_mean": 438893.4060915136,
+   "var99_vs_mean": 491919.385343296,
+   "es99_vs_mean": 633411.8900942423
+  },
+  "unhedged_distribution": {
+   "label": "spot dispatch (LSMC policy), no forward hedge",
+   "mean": 164936.78717319222,
+   "sd": 229896.1705924381,
+   "p5": -200610.280302367,
+   "p95": 558459.8025709541,
+   "var95_vs_mean": 365547.06747555925,
+   "es95_vs_mean": 479653.3266899375,
+   "var99_vs_mean": 547087.198150518,
+   "es99_vs_mean": 649049.5066926905
+  }
+ },
+ "swing": {
+  "deal": {
+   "name": "Henry Hub swing, Nov 2026 - Oct 2027",
+   "start": "2026-11-01",
+   "months": 12,
+   "strike": 2.85,
+   "q_min": 50000,
+   "q_max": 150000,
+   "annual_min": 900000,
+   "annual_max": 1400000,
+   "r": 0.04,
+   "steps": 4
+  },
+  "intrinsic_lp": -19797.864957940717,
+  "intrinsic_take": [
+   150000.0,
+   150000.0,
+   150000.0,
+   50000.0,
+   50000.0,
+   50000.0,
+   50000.0,
+   50000.0,
+   50000.0,
+   50000.0,
+   50000.0,
+   50000.0
+  ],
+  "lsmc": {
+   "value": 63888.720104846594,
+   "se": 3718.3416721180556
+  },
+  "flex_value": 83686.58506278732,
+  "deterministic_check": {
+   "lp": -50078.832109306815,
+   "lsmc": -50078.832475942916
+  }
+ },
+ "tolling": {
+  "deal": {
+   "name": "GB CCGT tolling, calendar 2027",
+   "start": "2027-01-01",
+   "days": 365,
+   "mw": 400,
+   "heat_rate": 2.0,
+   "vom": 4.0,
+   "emission_factor": 0.37,
+   "carbon_price": 60.0,
+   "start_cost": 15000.0,
+   "min_run_days": 2,
+   "r": 0.04
+  },
+  "kirk_strip": 51301665.35240402,
+  "intrinsic_strip": 42361786.802240334,
+  "mc_strip_nojumps": {
+   "value": 51265506.37727545,
+   "se": 160068.85941017777
+  },
+  "mc_strip_with_jumps": {
+   "value": 53433575.55820047,
+   "se": 260351.22134946013,
+   "run_days": 238.5315
+  },
+  "constrained_dispatch": {
+   "value": 53235268.610690616,
+   "se": 260835.1669210772
+  },
+  "cost_of_constraints": 198306.94750985503,
+  "unconstrained_dispatch_check": 53433575.55820047,
+  "rho_sensitivity": {
+   "0.3": 53043691.29947731,
+   "0.6": 51301665.35240402,
+   "0.8": 50086835.596382074
+  },
+  "heat_rate_sensitivity": {
+   "1.8": 62162500.00238136,
+   "2.0": 51301665.35240402,
+   "2.2": 41693335.3685666
+  },
+  "delta_power_mwh_total": 2597553.5317451907,
+  "delta_gas_mwh_total": 2973041.243762254,
+  "forward_power_avg": 81.05912782871715,
+  "forward_gas_avg": 21.267007924099634
+ },
+ "ppa": {
+  "deal": {
+   "name": "GB wind PPA, calendar 2027",
+   "start": "2027-01-01",
+   "days": 365,
+   "mw": 100,
+   "strike": 60.0,
+   "mean_cf": 0.36,
+   "cf_seasonal_amp": 0.1,
+   "cannibalisation": 0.35,
+   "r": 0.04
+  },
+  "value": 3632807.1494088667,
+  "se": 19255.678514998992,
+  "capture_rate": 0.8802360136452706,
+  "annual_volume_mwh": 315246.93216251093,
+  "annual_volume_sd_mwh": 9819.655577463789,
+  "breakeven_strike": 71.87847155793038,
+  "value_no_cannibalisation": 7304989.241705157,
+  "distribution": {
+   "label": "fixed-price wind PPA, unhedged",
+   "mean": 3632807.1494088667,
+   "sd": 1491538.4441703013,
+   "p5": 1247657.3104963612,
+   "p95": 6164119.907910289,
+   "var95_vs_mean": 2385149.838912505,
+   "es95_vs_mean": 2895355.467026067,
+   "var99_vs_mean": 3300874.5975553207,
+   "es99_vs_mean": 3625005.8750025737
+  }
+ },
+ "hedging": {
+  "call_volume": 1000000,
+  "premium_black76": 188279.0660537834,
+  "premium_mc_with_jumps": 494417.01187202835,
+  "jump_premium": 306137.94581824495,
+  "runs": {
+   "jumps=False,rebalance=1d": {
+    "forward": 2.7947834069585538,
+    "strike": 2.79,
+    "expiry": "2027-02-01",
+    "volume": 1000000,
+    "premium": 188279.0660537834,
+    "delta0": 0.5312777265552101,
+    "implied_vol": 0.30814553554883756,
+    "rebalances": 77,
+    "jumps": 0,
+    "unhedged": {
+     "mean": -5568.252493885778,
+     "sd": 314812.5386198308,
+     "var95": 677800.6534995077,
+     "es95": 963511.0416931283,
+     "var99": 1183364.7956457832,
+     "es99": 1389917.1400161674,
+     "worst5pct": -677800.6534995082
+    },
+    "hedged": {
+     "mean": 812.9536150977445,
+     "sd": 30510.771309125583,
+     "var95": 50085.88871746276,
+     "es95": 79095.49811250468,
+     "var99": 95383.3951189802,
+     "es99": 131166.62051117243,
+     "worst5pct": -50085.88871746279
+    },
+    "sd_reduction": 0.9030827315745179
+   },
+   "jumps=False,rebalance=5d": {
+    "forward": 2.7947834069585538,
+    "strike": 2.79,
+    "expiry": "2027-02-01",
+    "volume": 1000000,
+    "premium": 188279.0660537834,
+    "delta0": 0.5312777265552101,
+    "implied_vol": 0.30814553554883756,
+    "rebalances": 15,
+    "jumps": 0,
+    "unhedged": {
+     "mean": -5568.252493885778,
+     "sd": 314812.5386198308,
+     "var95": 677800.6534995077,
+     "es95": 963511.0416931283,
+     "var99": 1183364.7956457832,
+     "es99": 1389917.1400161674,
+     "worst5pct": -677800.6534995082
+    },
+    "hedged": {
+     "mean": 138.26717461470778,
+     "sd": 51025.686281144255,
+     "var95": 85269.27908726259,
+     "es95": 129562.7087319034,
+     "var99": 161995.48595392433,
+     "es99": 199455.89719436894,
+     "worst5pct": -85269.2790872626
+    },
+    "sd_reduction": 0.8379172363818611
+   },
+   "jumps=False,rebalance=21d": {
+    "forward": 2.7947834069585538,
+    "strike": 2.79,
+    "expiry": "2027-02-01",
+    "volume": 1000000,
+    "premium": 188279.0660537834,
+    "delta0": 0.5312777265552101,
+    "implied_vol": 0.30814553554883756,
+    "rebalances": 3,
+    "jumps": 0,
+    "unhedged": {
+     "mean": -5568.252493885778,
+     "sd": 314812.5386198308,
+     "var95": 677800.6534995077,
+     "es95": 963511.0416931283,
+     "var99": 1183364.7956457832,
+     "es99": 1389917.1400161674,
+     "worst5pct": -677800.6534995082
+    },
+    "hedged": {
+     "mean": -627.3492459134054,
+     "sd": 91901.56513859279,
+     "var95": 150785.62930071543,
+     "es95": 239197.24612570455,
+     "var99": 286681.61566894845,
+     "es99": 384298.03528511885,
+     "worst5pct": -150785.62930071552
+    },
+    "sd_reduction": 0.7080752706309021
+   },
+   "jumps=True,rebalance=1d": {
+    "forward": 2.9768147182819185,
+    "strike": 2.79,
+    "expiry": "2027-02-01",
+    "volume": 1000000,
+    "premium": 188279.0660537834,
+    "delta0": 0.5312777265552101,
+    "implied_vol": 0.30814553554883756,
+    "rebalances": 77,
+    "jumps": 1,
+    "unhedged": {
+     "mean": -303793.05001232814,
+     "sd": 874534.8391212238,
+     "var95": 2033569.971945337,
+     "es95": 3119527.8883360466,
+     "var99": 3643580.188717402,
+     "es99": 5135633.761333954,
+     "worst5pct": -2033569.9719453375
+    },
+    "hedged": {
+     "mean": -311180.55741730897,
+     "sd": 241972.88402403856,
+     "var95": 770725.77657501,
+     "es95": 1100119.5182320578,
+     "var99": 1304179.5215305751,
+     "es99": 1643278.4951459882,
+     "worst5pct": -770725.7765750104
+    },
+    "sd_reduction": 0.7233124705847225
+   },
+   "jumps=True,rebalance=5d": {
+    "forward": 2.9768147182819185,
+    "strike": 2.79,
+    "expiry": "2027-02-01",
+    "volume": 1000000,
+    "premium": 188279.0660537834,
+    "delta0": 0.5312777265552101,
+    "implied_vol": 0.30814553554883756,
+    "rebalances": 15,
+    "jumps": 1,
+    "unhedged": {
+     "mean": -303793.05001232814,
+     "sd": 874534.8391212238,
+     "var95": 2033569.971945337,
+     "es95": 3119527.8883360466,
+     "var99": 3643580.188717402,
+     "es99": 5135633.761333954,
+     "worst5pct": -2033569.9719453375
+    },
+    "hedged": {
+     "mean": -312281.212981091,
+     "sd": 256205.65790197477,
+     "var95": 767898.4137980862,
+     "es95": 1136667.541430023,
+     "var99": 1352207.953913692,
+     "es99": 1781790.5688156905,
+     "worst5pct": -767898.4137980862
+    },
+    "sd_reduction": 0.707037791473896
+   },
+   "jumps=True,rebalance=21d": {
+    "forward": 2.9768147182819185,
+    "strike": 2.79,
+    "expiry": "2027-02-01",
+    "volume": 1000000,
+    "premium": 188279.0660537834,
+    "delta0": 0.5312777265552101,
+    "implied_vol": 0.30814553554883756,
+    "rebalances": 3,
+    "jumps": 1,
+    "unhedged": {
+     "mean": -303793.05001232814,
+     "sd": 874534.8391212238,
+     "var95": 2033569.971945337,
+     "es95": 3119527.8883360466,
+     "var99": 3643580.188717402,
+     "es99": 5135633.761333954,
+     "worst5pct": -2033569.9719453375
+    },
+    "hedged": {
+     "mean": -311192.832632741,
+     "sd": 278918.921500839,
+     "var95": 837975.0508541574,
+     "es95": 1190385.6859614316,
+     "var99": 1379284.978789858,
+     "es99": 1827703.4945034457,
+     "worst5pct": -837975.0508541578
+    },
+    "sd_reduction": 0.681065968988599
+   }
+  }
+ },
+ "economics": {
+  "tables": [
+   {
+    "deal": "Storage (rolling-intrinsic hedge)",
+    "currency": "USD",
+    "expected_value": 165122.06818425906,
+    "fee_or_premium": 64890.113098359994,
+    "hedge_volume": 800000.0,
+    "bid_offer": 0.01,
+    "hedge_cost": 8000.0,
+    "expected_pnl": 222012.18128261904,
+    "worst_5pct": -103418.83580887094,
+    "var95": 325431.01709148986,
+    "es95": 438893.4060915136,
+    "capital_es99": 633411.8900942423,
+    "return_on_capital": 0.3505020741710215,
+    "hurdle": 0.12,
+    "meets_hurdle": 1,
+    "horizon_years": 1.0
+   },
+   {
+    "deal": "Tolling (constrained dispatch)",
+    "currency": "GBP",
+    "expected_value": 53235268.610690616,
+    "fee_or_premium": 51281462.39473532,
+    "hedge_volume": 5570594.7755074445,
+    "bid_offer": 0.25,
+    "hedge_cost": 1392648.6938768611,
+    "expected_pnl": 103124082.31154907,
+    "worst_5pct": 72121514.98023915,
+    "var95": 31002567.331309922,
+    "es95": 36580551.47748407,
+    "capital_es99": 43525905.40727128,
+    "return_on_capital": 2.3692576029520462,
+    "hurdle": 0.12,
+    "meets_hurdle": 1,
+    "horizon_years": 1.0
+   },
+   {
+    "deal": "Wind PPA at 60 \u00a3/MWh",
+    "currency": "GBP",
+    "expected_value": 3632807.1494088667,
+    "fee_or_premium": 0.0,
+    "hedge_volume": 315246.93216251093,
+    "bid_offer": 0.25,
+    "hedge_cost": 78811.73304062773,
+    "expected_pnl": 3553995.416368239,
+    "worst_5pct": 1168845.5774557334,
+    "var95": 2385149.838912505,
+    "es95": 2895355.467026067,
+    "capital_es99": 3625005.8750025737,
+    "return_on_capital": 0.9804109397107434,
+    "hurdle": 0.12,
+    "meets_hurdle": 1,
+    "horizon_years": 1.0
+   }
+  ],
+  "storage_min_fee": -81112.64137294999,
+  "tolling_min_fee": -46619511.2679412
+ },
+ "desk_book": {
+  "rows": [
+   {
+    "deal": "Mar-27 HH call, 500k MMBtu",
+    "booked_value": 87088.79388827231,
+    "model_value": 87088.79388827231,
+    "tolerance": 1741.7758777654462,
+    "difference": 0.0,
+    "flagged": 0,
+    "planted_error": 0,
+    "note": "booked on the forward with the model volatility"
+   },
+   {
+    "deal": "Mar-27 HH call (second lot), 500k MMBtu",
+    "booked_value": 317819.491109627,
+    "model_value": 87088.79388827231,
+    "tolerance": 1741.7758777654462,
+    "difference": 230730.6972213547,
+    "flagged": 1,
+    "planted_error": 1,
+    "note": "booked using today's spot price in place of the Mar-27 forward"
+   },
+   {
+    "deal": "Mar-27 HH put, 500k MMBtu",
+    "booked_value": 88089.38322047185,
+    "model_value": 88089.38322047185,
+    "tolerance": 1761.787664409437,
+    "difference": 0.0,
+    "flagged": 0,
+    "planted_error": 0,
+    "note": "booked by put-call parity from the call"
+   },
+   {
+    "deal": "Mar-27 HH Asian call, 500k MMBtu",
+    "booked_value": 24867.21527298396,
+    "model_value": 24853.911904001216,
+    "tolerance": 497.07823808002433,
+    "difference": 13.303368982746179,
+    "flagged": 0,
+    "planted_error": 0,
+    "note": "booked from an independent Monte Carlo run"
+   },
+   {
+    "deal": "Jul-27 spark-spread option strip, 400 MW",
+    "booked_value": 2587733.774580371,
+    "model_value": 2046924.6222538108,
+    "tolerance": 40938.49244507622,
+    "difference": 540809.1523265603,
+    "flagged": 1,
+    "planted_error": 1,
+    "note": "booked with power-gas correlation 0 instead of 0.6"
+   },
+   {
+    "deal": "Aug-27 spark-spread option strip, 400 MW",
+    "booked_value": 2046924.6222538108,
+    "model_value": 2046924.6222538108,
+    "tolerance": 40938.49244507622,
+    "difference": 0.0,
+    "flagged": 0,
+    "planted_error": 0,
+    "note": "booked with the desk correlation"
+   },
+   {
+    "deal": "Storage 0.5 Bcf, Nov-26 to Oct-27",
+    "booked_value": 17333.494543445602,
+    "model_value": 82130.25421455811,
+    "tolerance": 6206.81988034408,
+    "difference": -64796.75967111251,
+    "flagged": 1,
+    "planted_error": 1,
+    "note": "booked at intrinsic value only; extrinsic value left out"
+   },
+   {
+    "deal": "CCGT tolling 2027, 400 MW",
+    "booked_value": 15687.907087320189,
+    "model_value": 51301665.35240402,
+    "tolerance": 1026033.3070480805,
+    "difference": -51285977.4453167,
+    "flagged": 1,
+    "planted_error": 1,
+    "note": "heat rate entered as 7.0 (MMBtu per MWh) where the model takes MWh gas per MWh power (2.0)"
+   }
+  ],
+  "n_planted": 4,
+  "n_flagged": 4
+ },
+ "scorecard": {
+  "n_checks": 21,
+  "n_passed": 21,
+  "checks": [
+   {
+    "group": "Options",
+    "check": "Black-76 equals Monte Carlo for a European call (no jumps)",
+    "pass": 1,
+    "detail": "Black-76 0.1883, MC 0.1875 +/- 0.0015"
+   },
+   {
+    "group": "Options",
+    "check": "put-call parity",
+    "pass": 1,
+    "detail": "C - P - df(F - K) = -2.13e-16"
+   },
+   {
+    "group": "Options",
+    "check": "geometric control variate cuts the Asian standard error by half or more",
+    "pass": 1,
+    "detail": "plain SE 0.00177, control-variate SE 0.00003"
+   },
+   {
+    "group": "Options",
+    "check": "Asian call is worth less than the European call on the same forward and strike",
+    "pass": 1,
+    "detail": "Asian 0.0441 < European 0.1883"
+   },
+   {
+    "group": "Storage",
+    "check": "with zero volatility LP, LSMC and lattice agree to the dollar",
+    "pass": 1,
+    "detail": "LP 33,795, LSMC 33,795, lattice 33,795"
+   },
+   {
+    "group": "Storage",
+    "check": "extrinsic value is positive: LSMC above intrinsic",
+    "pass": 1,
+    "detail": "LSMC 164,937 > intrinsic 34,667"
+   },
+   {
+    "group": "Storage",
+    "check": "LSMC (a lower bound) does not exceed the lattice by more than 3 SE",
+    "pass": 1,
+    "detail": "LSMC 164,937 +/- 2,968, lattice 169,508"
+   },
+   {
+    "group": "Storage",
+    "check": "value rises with volatility",
+    "pass": 1,
+    "detail": "sigma x1.5: 305,165 > 164,937"
+   },
+   {
+    "group": "Swing",
+    "check": "with zero volatility LP and LSMC agree to the dollar",
+    "pass": 1,
+    "detail": "LP -50,079, LSMC -50,079"
+   },
+   {
+    "group": "Swing",
+    "check": "flexibility has value: LSMC above intrinsic",
+    "pass": 1,
+    "detail": "63,889 > -19,798"
+   },
+   {
+    "group": "Tolling",
+    "check": "Kirk strip (with the OU terminal correlation) equals the Monte Carlo strip within 1% or 3 SE",
+    "pass": 1,
+    "detail": "Kirk 51,301,665, MC 51,265,506 +/- 160,069"
+   },
+   {
+    "group": "Tolling",
+    "check": "constraints cost value: constrained dispatch below the unconstrained strip",
+    "pass": 1,
+    "detail": "constrained 53,235,269 <= strip 53,433,576"
+   },
+   {
+    "group": "Tolling",
+    "check": "with no start cost and no minimum run the dispatch equals the strip exactly",
+    "pass": 1,
+    "detail": "53,433,576 vs 53,433,576"
+   },
+   {
+    "group": "PPA",
+    "check": "cannibalisation lowers the capture rate and the value",
+    "pass": 1,
+    "detail": "capture rate 0.880 with, 1.026 without (seasonal wind lifts it above 1)"
+   },
+   {
+    "group": "PPA",
+    "check": "the deal is worth zero at the breakeven strike",
+    "pass": 1,
+    "detail": "value at breakeven -8,179 +/- 19,458"
+   },
+   {
+    "group": "Hedging",
+    "check": "delta hedging cuts the P&L standard deviation",
+    "pass": 1,
+    "detail": "unhedged sd 314,813, hedged daily 30,511"
+   },
+   {
+    "group": "Hedging",
+    "check": "daily rebalancing beats monthly",
+    "pass": 1,
+    "detail": "daily 30,511 < monthly 91,902"
+   },
+   {
+    "group": "Hedging",
+    "check": "with jumps, the mean hedged loss equals the jump premium left out of the Black-76 price (within 3 SE)",
+    "pass": 1,
+    "detail": "mean hedged P&L -311,181; jump premium 306,138"
+   },
+   {
+    "group": "Economics",
+    "check": "the minimum fee makes the return on capital equal to the hurdle",
+    "pass": 1,
+    "detail": "RoC 0.1200 at fee -81,113"
+   },
+   {
+    "group": "Desk book",
+    "check": "every planted mispricing in the desk book is flagged",
+    "pass": 1,
+    "detail": "4 of 4 flagged"
+   },
+   {
+    "group": "Desk book",
+    "check": "no correctly booked deal is flagged",
+    "pass": 1,
+    "detail": "false flags: []"
+   }
+  ],
+  "quick": 0,
+  "elapsed_seconds": 27.7
+ }
+}

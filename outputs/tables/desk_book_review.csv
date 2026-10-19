@@ -1,0 +1,9 @@
+deal,booked_value,model_value,tolerance,difference,flagged,planted_error,note
+"Mar-27 HH call, 500k MMBtu",87088.79388827231,87088.79388827231,1741.7758777654462,0.0,False,False,booked on the forward with the model volatility
+"Mar-27 HH call (second lot), 500k MMBtu",317819.491109627,87088.79388827231,1741.7758777654462,230730.6972213547,True,True,booked using today's spot price in place of the Mar-27 forward
+"Mar-27 HH put, 500k MMBtu",88089.38322047185,88089.38322047185,1761.787664409437,0.0,False,False,booked by put-call parity from the call
+"Mar-27 HH Asian call, 500k MMBtu",24867.21527298396,24853.911904001216,497.07823808002433,13.303368982746179,False,False,booked from an independent Monte Carlo run
+"Jul-27 spark-spread option strip, 400 MW",2587733.774580371,2046924.6222538108,40938.49244507622,540809.1523265603,True,True,booked with power-gas correlation 0 instead of 0.6
+"Aug-27 spark-spread option strip, 400 MW",2046924.6222538108,2046924.6222538108,40938.49244507622,0.0,False,False,booked with the desk correlation
+"Storage 0.5 Bcf, Nov-26 to Oct-27",17333.494543445602,82130.25421455811,6206.81988034408,-64796.75967111251,True,True,booked at intrinsic value only; extrinsic value left out
+"CCGT tolling 2027, 400 MW",15687.907087320189,51301665.35240402,1026033.3070480805,-51285977.4453167,True,True,heat rate entered as 7.0 (MMBtu per MWh) where the model takes MWh gas per MWh power (2.0)

@@ -1,0 +1,15 @@
+[project]
+name = "flexval"
+version = "0.1.0"
+description = "Pricing, hedging and risk of flexibility in energy markets: from term sheet to deal memo"
+requires-python = ">=3.11"
+dependencies = ["numpy", "pandas", "scipy", "openpyxl", "python-docx"]
+[project.optional-dependencies]
+dev = ["pytest"]
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
